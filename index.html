@@ -7,46 +7,53 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0f0f0f; /* Fundo preto elegante */
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0f0f0f;
             color: #ffffff;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
         }
         .container {
             text-align: center;
             padding: 20px;
-            max-width: 500px;
-            animation: fadeIn 1.5s ease-in-out;
+            max-width: 450px;
+            animation: fadeIn 1.2s ease-in-out;
         }
         .logo {
-            max-width: 280px;
+            max-width: 250px;
             height: auto;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            margin-bottom: 20px;
         }
         h1 {
-            font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: #d1d1d1;
-        }
-        .divider {
-            width: 50px;
-            height: 1px;
-            background: #d1d1d1;
-            margin: 20px auto;
-        }
-        p {
             font-size: 1rem;
             font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #d1d1d1;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.95rem;
             color: #a0a0a0;
+            margin-bottom: 30px;
             line-height: 1.6;
+        }
+        .btn-whatsapp {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 12px 25px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-whatsapp:hover {
+            background: #ffffff;
+            color: #000;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -57,10 +64,10 @@
 <body>
     <div class="container">
         <img src="logo.png" alt="Bela Prata Logo" class="logo">
-        
         <h1>Em Construção</h1>
-        <div class="divider"></div>
-        <p>Estamos preparando uma experiência única em semijoias para você. Em breve, a sofisticação da prata em cada detalhe.</p>
+        <p>Estamos a preparar novidades. Deseja falar connosco ou fazer um pedido?</p>
+        
+        <a href="https://wa.me/5544999934869" class="btn-whatsapp" target="_blank">Atendimento WhatsApp</a>
     </div>
 </body>
 </html>
