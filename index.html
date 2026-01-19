@@ -11,76 +11,54 @@
             font-family: 'Segoe UI', sans-serif;
             background-color: #000000;
             color: #ffffff;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
             text-align: center;
-            padding: 20px;
-            max-width: 800px;
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 600px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
         .logo-wrapper {
             position: relative;
-            display: inline-block;
-            margin-bottom: 30px;
+            display: block;
+            margin: 0 auto 40px;
+            width: fit-content;
         }
 
         .logo {
             display: block;
             width: 100%;
-            max-width: 600px;
+            max-width: 300px; /* Tamanho controlado */
             height: auto;
+            min-height: 50px; /* Garante visibilidade se a imagem demorar */
         }
 
-        /* O Sparkle (Brilho Pulsante) */
+        /* Estrela Pulsante Corrigida */
         .sparkle {
             position: absolute;
-            top: 5%; /* Ajuste aqui para subir ou descer o brilho */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: white;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8);
-            animation: pulse-sparkle 1.5s infinite ease-in-out;
-            pointer-events: none;
-        }
-
-        /* Segunda camada para o brilho em cruz */
-        .sparkle::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 2px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 0 15px white;
-        }
-
-        .sparkle::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 0 15px white;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            /* Formato de estrela de 4 pontas mais elegante */
+            clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+            box-shadow: 0 0 20px #fff;
+            animation: pulse-sparkle 1.8s infinite ease-in-out;
+            z-index: 10;
         }
 
         @keyframes pulse-sparkle {
-            0%, 100% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; filter: blur(1px); }
+            0%, 100% { transform: scale(0.5); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 1; filter: brightness(1.5); }
         }
 
         h1 {
@@ -89,11 +67,11 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             color: #e0e0e0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #888;
             margin-bottom: 40px;
             line-height: 1.6;
@@ -104,40 +82,41 @@
             text-decoration: none;
             color: #ffffff;
             border: 1px solid #ffffff;
-            padding: 15px 35px;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
+            padding: 18px 40px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: all 0.4s;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 20; /* Garante clique */
         }
 
         .btn-whatsapp:hover {
             background: #ffffff;
             color: #000;
-            box-shadow: 0 0 20px rgba(255,255,255,0.2);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 600px) {
-            .logo { max-width: 90vw; }
-            h1 { font-size: 1rem; letter-spacing: 3px; }
-            .sparkle { width: 30px; height: 30px; }
+        @media (max-width: 480px) {
+            .logo { max-width: 220px; }
+            h1 { font-size: 0.9rem; }
+            .btn-whatsapp { width: 100%; padding: 15px 20px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo-wrapper">
-            <img src="logo.png" alt="Bela Prata Logo" class="logo">
+            <img src="logo.png" alt="Bela Prata" class="logo">
             <div class="sparkle"></div>
         </div>
         
         <h1>Em Construção</h1>
-        <p>Estamos preparando uma coleção exclusiva para você.<br>Precisa de atendimento imediato?</p>
+        <p>Estamos preparando uma coleção exclusiva para você.<br>Precisa de atendimento?</p>
         
         <a href="https://wa.me/5544999934869" class="btn-whatsapp" target="_blank">Falar no WhatsApp</a>
     </div>
