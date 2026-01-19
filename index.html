@@ -22,9 +22,9 @@
             text-align: center;
             padding: 20px;
             max-width: 800px;
-            animation: fadeIn 1.5s ease-in-out;
             position: relative;
             z-index: 2;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .logo-wrapper {
@@ -38,115 +38,112 @@
             width: 100%;
             max-width: 600px;
             height: auto;
-            transition: filter 1s ease;
+            filter: brightness(0.9);
+            transition: filter 1.2s ease;
         }
 
-        /* === Estrela Disney + rastro curvo + fairy dust === */
-        .magic-star-container {
+        /* Estrela mágica Disney-style */
+        .magic-arc {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: -10%;
+            left: -30%;
+            width: 200px;
+            height: 6px;
+            background: linear-gradient(90deg, transparent, #fffef0 30%, #ffffff 50%, #fffef0 70%, transparent);
+            border-radius: 50%;
+            box-shadow: 0 0 40px 15px rgba(255, 250, 200, 0.9), 0 0 80px 30px rgba(255, 220, 150, 0.6);
+            opacity: 0;
+            transform: rotate(-12deg);
+            animation: drawArc 9s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
             pointer-events: none;
             z-index: 1;
-            overflow: hidden;
         }
 
-        .shooting-star {
-            position: absolute;
-            width: 140px;
-            height: 4px;
-            background: linear-gradient(to right, 
-                transparent, 
-                rgba(255, 245, 220, 0.9) 30%, 
-                #fffef7 50%, 
-                rgba(255, 245, 220, 0.9) 70%, 
-                transparent);
-            border-radius: 50%;
-            box-shadow: 0 0 30px 10px rgba(255, 250, 220, 0.9);
-            opacity: 0;
-            top: 15%;
-            left: -20%;
-            transform: rotate(-25deg); /* inclinação para arco */
-            animation: arcPath 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-        }
-
-        .shooting-star::before {
+        .magic-arc::before {
             content: '';
             position: absolute;
             left: 0;
-            top: -8px;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, #ffffff 20%, rgba(255,255,240,0.6) 70%, transparent);
+            top: -12px;
+            width: 28px;
+            height: 28px;
+            background: radial-gradient(circle at center, #ffffff 20%, #fffef0 60%, transparent 90%);
             border-radius: 50%;
-            box-shadow: 0 0 25px 10px #fffef7;
+            box-shadow: 0 0 35px 15px #fffef0, 0 0 60px 25px rgba(255, 240, 180, 0.8);
             transform: translateX(-50%);
         }
 
-        @keyframes arcPath {
+        @keyframes drawArc {
             0% {
-                left: -20%;
-                top: 10%;
+                left: -30%;
+                top: -5%;
                 opacity: 0;
-                transform: rotate(-25deg) scale(0.7);
+                transform: rotate(-20deg) scale(0.5);
             }
             10% {
                 opacity: 1;
-                transform: rotate(-25deg) scale(1);
+                transform: rotate(-15deg) scale(1);
             }
-            50% {
-                left: 50%;
-                top: 5%;   /* pico do arco */
-                transform: rotate(-15deg);
+            45% {
+                left: 40%;
+                top: -15%;  /* pico alto do arco */
+                transform: rotate(0deg) scale(1.1);
             }
-            80% {
+            70% {
                 left: 110%;
-                top: 18%;  /* descendo levemente */
+                top: -5%;
                 opacity: 1;
+                transform: rotate(10deg) scale(1);
+            }
+            90% {
+                opacity: 0.6;
             }
             100% {
-                left: 120%;
-                top: 30%;
+                left: 130%;
+                top: 5%;
                 opacity: 0;
-                transform: rotate(-5deg) scale(0.9);
+                transform: rotate(15deg) scale(0.8);
             }
         }
 
-        /* Fairy dust particles caindo do rastro */
-        .particle {
+        /* Fairy dust - partículas caindo do arco */
+        .dust {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #fffef7;
+            width: 3px;
+            height: 3px;
+            background: #fffef0;
             border-radius: 50%;
-            box-shadow: 0 0 12px #fffef7;
+            box-shadow: 0 0 15px #fffef0, 0 0 25px rgba(255, 240, 180, 0.7);
             opacity: 0;
             pointer-events: none;
+            z-index: 1;
         }
 
-        /* Exemplos de partículas - duplicar para mais */
-        .particle:nth-child(1) { animation: dustFall 8s 1s linear infinite; left: 20%; top: 20%; }
-        .particle:nth-child(2) { animation: dustFall 8s 2.5s linear infinite; left: 35%; top: 15%; }
-        .particle:nth-child(3) { animation: dustFall 8s 3.8s linear infinite; left: 50%; top: 12%; }
-        .particle:nth-child(4) { animation: dustFall 8s 5s linear infinite; left: 65%; top: 18%; }
-        .particle:nth-child(5) { animation: dustFall 8s 6.2s linear infinite; left: 80%; top: 22%; }
+        /* 10 partículas com delays diferentes para rastro contínuo */
+        .dust:nth-child(1)  { animation: fallDust 9s 0.8s linear infinite; left: 10%; }
+        .dust:nth-child(2)  { animation: fallDust 9s 1.4s linear infinite; left: 20%; }
+        .dust:nth-child(3)  { animation: fallDust 9s 2.0s linear infinite; left: 30%; }
+        .dust:nth-child(4)  { animation: fallDust 9s 2.6s linear infinite; left: 40%; }
+        .dust:nth-child(5)  { animation: fallDust 9s 3.2s linear infinite; left: 50%; }
+        .dust:nth-child(6)  { animation: fallDust 9s 3.8s linear infinite; left: 60%; }
+        .dust:nth-child(7)  { animation: fallDust 9s 4.4s linear infinite; left: 70%; }
+        .dust:nth-child(8)  { animation: fallDust 9s 5.0s linear infinite; left: 80%; }
+        .dust:nth-child(9)  { animation: fallDust 9s 5.6s linear infinite; left: 85%; }
+        .dust:nth-child(10) { animation: fallDust 9s 6.2s linear infinite; left: 90%; }
 
-        @keyframes dustFall {
-            0% { opacity: 0.8; transform: translateY(0) scale(1); }
-            40% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(180px) scale(0.4); }
+        @keyframes fallDust {
+            0%   { opacity: 0.9; transform: translateY(0) scale(1.2); }
+            30%  { opacity: 1; transform: translateY(40px) scale(1); }
+            100% { opacity: 0; transform: translateY(300px) scale(0.3); }
         }
 
-        /* Iluminação na logo no final do arco */
-        @keyframes logoGlow {
-            0%, 100% { filter: brightness(1) drop-shadow(0 0 0 rgba(255,255,220,0)); }
-            60% { filter: brightness(1.3) drop-shadow(0 0 25px rgba(255,255,220,0.8)); }
+        /* Glow forte na logo quando a estrela passa */
+        @keyframes logoMagic {
+            0%, 100% { filter: brightness(0.9) drop-shadow(0 0 0 rgba(255,240,180,0)); }
+            50%      { filter: brightness(1.6) drop-shadow(0 0 40px rgba(255,240,180,0.9)) drop-shadow(0 0 80px rgba(255,220,150,0.7)); }
         }
 
-        .logo.glow-trigger {
-            animation: logoGlow 8s infinite;
+        .logo.magic-glow {
+            animation: logoMagic 9s infinite;
         }
 
         h1 {
@@ -191,24 +188,22 @@
         @media (max-width: 600px) {
             .logo { max-width: 90vw; }
             h1 { font-size: 1rem; letter-spacing: 3px; }
-            .shooting-star { width: 100px; height: 3px; }
+            .magic-arc { width: 140px; height: 4px; }
+            .dust { width: 2.5px; height: 2.5px; }
         }
     </style>
 </head>
 <body>
-    <div class="magic-star-container">
-        <div class="shooting-star"></div>
-        <!-- Fairy dust particles -->
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+    <div class="magic-arc"></div>
     
+    <!-- Fairy dust particles -->
+    <div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div>
+    <div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div>
+    <div class="dust"></div><div class="dust"></div>
+
     <div class="container">
         <div class="logo-wrapper">
-            <img src="logo.png" alt="Bela Prata Logo" class="logo glow-trigger">
+            <img src="logo.png" alt="Bela Prata Logo" class="logo magic-glow">
         </div>
         
         <h1>Em Construção</h1>
