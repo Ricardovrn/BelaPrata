@@ -13,26 +13,46 @@
         /* Header */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 5%; background-color: #fff; border-bottom: 1px solid #e0e0e0;
+            /* Aumentei o padding para acomodar a logo maior */
+            padding: 15px 5%; background-color: #fff; border-bottom: 1px solid #e0e0e0;
         }
-        .logo img { height: 60px; } 
+        .logo img { 
+            /* AJUSTE 1: Logo MAIOR conforme pedido */
+            height: 110px; 
+            display: block;
+        } 
         nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        nav a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
 
         /* Hero / Capa */
         .hero {
-            position: relative; width: 100%; height: 60vh; overflow: hidden;
+            position: relative; width: 100%; height: 70vh; overflow: hidden;
             display: flex; align-items: center; justify-content: center;
-            background: #f4f4f4;
+            background: #000; /* Fundo preto caso a imagem demore */
         }
         .hero img {
-            width: 100%; height: 100%; object-fit: cover; opacity: 0.9;
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.8; /* Escureci levemente para o texto destacar */
         }
         .hero-text {
-            position: absolute; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-            text-align: center;
+            position: absolute; color: #fff; text-shadow: 0 4px 6px rgba(0,0,0,0.8);
+            text-align: center; width: 90%;
         }
-        .hero-text h1 { font-size: 3rem; margin-bottom: 10px; font-weight: 300; }
+        /* AJUSTE 2: Texto com estilo de LOGO */
+        .hero-text h1 { 
+            font-family: 'Playfair Display', 'Times New Roman', serif; /* Fonte elegante */
+            font-size: 5.5rem; /* Fonte GIGANTE */
+            margin-bottom: 10px; 
+            font-weight: 400; 
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
         /* Carrossel Principal */
         .carousel-container {
@@ -68,6 +88,13 @@
         footer {
             background-color: #333; color: #fff; text-align: center;
             padding: 20px; margin-top: 50px; font-size: 0.8rem;
+        }
+
+        /* Responsividade para celular */
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 3rem; }
+            .logo img { height: 80px; }
+            header { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
