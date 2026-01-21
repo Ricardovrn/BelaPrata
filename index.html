@@ -40,7 +40,7 @@
             border-radius: 2px; font-weight: bold;
         }
 
-        /* --- Hero / Capa (ALTERADO AQUI) --- */
+        /* --- Hero / Capa --- */
         .hero {
             position: relative; width: 100%; height: 70vh; overflow: hidden;
             display: flex; align-items: center; justify-content: center; background: #000;
@@ -49,11 +49,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* MUDANÇA 1: Focar no topo para tentar mostrar mais os ombros embaixo */
-            object-position: center top;
-            /* MUDANÇA 2: Menos transparência e cores mais vivas com filtro */
+            object-position: center top; /* Foco no topo (Ombros) */
             opacity: 0.9;
-            filter: saturate(1.3) contrast(1.05);
+            filter: saturate(1.3) contrast(1.05); /* Cores vivas */
         }
         .hero-text {
             position: absolute; color: #fff; text-shadow: 0 4px 6px rgba(0,0,0,0.8);
@@ -164,7 +162,7 @@
             <ul>
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Minha Conta</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="https://wa.me/5544998030313" target="_blank">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -222,7 +220,7 @@
         </div>
     </section>
 
-    <a href="https://wa.me/5544999934869" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5544998030313" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -258,7 +256,7 @@
                 </ul>
                 <h3 style="margin-top: 20px;">Atendimento</h3>
                 <ul>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="https://wa.me/5544998030313" target="_blank">Contato</a></li>
                     <li><a href="#">Dúvidas Frequentes</a></li>
                 </ul>
             </div>
