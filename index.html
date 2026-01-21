@@ -64,7 +64,7 @@
         .feature-text h2 { font-size: 2.5rem; margin-bottom: 15px; color: #333; }
         .feature-text p { line-height: 1.6; color: #666; font-size: 1.1rem; }
 
-        /* NOVO RODAPÉ (Igual ao print) */
+        /* Rodapé */
         footer {
             background-color: #fff; color: #333; padding: 60px 5% 30px;
             border-top: 1px solid #eaeaea; margin-top: 0;
@@ -85,9 +85,13 @@
         }
         .footer-col ul li a:hover { color: #000; text-decoration: underline; }
         
-        /* Ícones de Pagamento e Segurança */
-        .payment-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
-        .payment-icons i { font-size: 28px; color: #444; }
+        /* Ajuste para a imagem de pagamento */
+        .payment-img img {
+            max-width: 100%; 
+            height: auto; 
+            margin-bottom: 20px;
+            display: block;
+        }
         
         .security-badges { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         .badge {
@@ -201,12 +205,8 @@
             </div>
             <div class="footer-col">
                 <h3>Formas de Pagamento</h3>
-                <div class="payment-icons">
-                    <i class="fa-brands fa-cc-mastercard"></i>
-                    <i class="fa-brands fa-cc-visa"></i>
-                    <i class="fa-brands fa-cc-amex"></i>
-                    <i class="fa-brands fa-pix"></i>
-                    <i class="fa-brands fa-cc-diners-club"></i>
+                <div class="payment-img">
+                    <img src="formasdepagamento01.png" alt="Aceitamos Cartões e Pix">
                 </div>
                 
                 <h3>Segurança</h3>
